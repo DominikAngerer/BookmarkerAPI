@@ -70,6 +70,7 @@ in your command line and visit: `http://localhost:8000/`.
 
 
 ## API Documentation:
+
 #### GET `/bookmarks/`
 
 Retrieve list of Bookmarks
@@ -151,6 +152,7 @@ Removes a specific bookmark
 
 Response (204 - No Content)
 
+## Postman Collection can be found [HERE](https://www.getpostman.com/collections/eb9a8282f235e43c2e22)
 
 ## Version: 0.1.0
 
