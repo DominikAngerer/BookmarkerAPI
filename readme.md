@@ -1,27 +1,90 @@
-## Laravel PHP Framework
+# Bookmarker
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Simple Laravel PHP Rest API to store your bookmarks in your database.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+##[Try this API]
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+### API Documentation:
+#### GET `/bookmarks/`
 
-## Official Documentation
+Retrieve list of Bookmarks
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Response (200 - OK):
 
-## Contributing
+```
+{
+  "bookmarks": [
+    {
+      "id": "1",
+      "title": "Google",
+      "url": "http://www.google.com",
+      "tags": "Search Engine"
+    },
+    {
+      "id": "2",
+      "title": "Bing",
+      "url": "http://www.bing.com",
+      "tags": "Search Engine"
+    },
+    {
+      "id": "3",
+      "title": "Youtube",
+      "url": "http://www.youtube.com",
+      "tags": "Video Sharing Platform"
+    }
+  ]
+}
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+#### GET `/bookmarks/{id}`
 
-## Security Vulnerabilities
+Retrieve a specific bookmark
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Response: (200 - OK):
 
-### License
+```
+{
+  "bookmark": {
+      "id": "1",
+      "title": "Google",
+      "url": "http://www.google.com",
+      "tags": "Search Engine"
+    }
+}
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+#### POST `/bookmarks/`
+
+Add a new bookmark
+
+Request:
+```
+{
+  "bookmark": {
+      "title": "Vimeo",
+      "url": "http://www.vimeo.com",
+      "tags": "Video Sharing Platform"
+    }
+}
+```
+
+Response: (200 - OK):
+```
+{
+  "bookmark": {
+  	  "id": 4,
+      "title": "Vimeo",
+      "url": "http://www.vimeo.com",
+      "tags": "Video Sharing Platform"
+    }
+}
+```
+
+#### DELETE `/bookmarks/{id}`
+
+Removes a specific bookmark
+
+Response (204 - No Content)
+
+
+[Try this API]:http://api.bookmarker.dominikangerer.com/
